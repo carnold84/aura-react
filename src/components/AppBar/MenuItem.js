@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const MenuItem = styled.li`
-  margin: 0 0 0 10px;
+  height: 100%;
+  padding: 0 15px;
 
   a,
   a:link,
