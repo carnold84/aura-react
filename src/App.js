@@ -1,12 +1,12 @@
-import React from "react";
-import { Router } from "@reach/router";
+import React, { lazy, Suspense } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 // theme
 import theme from "./themes/default";
 
-// routes
-import { routes } from "./config";
+import LoadingScreen from "./components/LoadingScreen";
+
+import { useUser } from "./providers/UserProvider";
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -39,16 +39,19 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const AuthenticatedApp = lazy(() => import("./AuthenticatedApp"));
+const UnauthenticatedApp = lazy(() => import("./UnauthenticatedApp"));
+
 const App = () => {
+  const user = useUser();
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Router>
-          {routes.map(route => {
-            return <route.component key={route.id} path={route.path} />;
-          })}
-        </Router>
+        <Suspense fallback={<LoadingScreen />}>
+          {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+        </Suspense>
       </>
     </ThemeProvider>
   );

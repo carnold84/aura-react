@@ -43,7 +43,7 @@ const AppBar = ({ contentLeft, contentRight, ...rest }) => {
   return (
     <Wrapper {...rest}>
       <Main>
-        <Logo height={"26px"} style={{ margin: "0 0 0 15px" }} />
+        <Logo height={"26px"} style={{ margin: "0 0 0 20px" }} />
       </Main>
       <Menu>{contentRight}</Menu>
     </Wrapper>

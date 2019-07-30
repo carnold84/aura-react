@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
 const MenuItem = styled.li`
-  height: 100%;
-  padding: 0 15px;
+  margin: 0;
+
+  &:last-child {
+    margin: 0;
+  }
 
   a,
   a:link,
   a:visited {
+    align-items: center;
     color: ${props => props.theme.appBar.menu.menuItem.color};
+    display: flex;
+    height: 100%;
+    padding: 0 20px;
     text-transform: uppercase;
     text-decoration: none;
 

@@ -1,5 +1,4 @@
 import { Formik } from "formik";
-import { navigate } from "@reach/router";
 import React from "react";
 import styled from "styled-components";
 
@@ -9,6 +8,7 @@ import Button from "../components/Button";
 import Loading from "../components/Loading";
 import Logo from "../components/Logo";
 import TextInput from "../components/TextInput";
+import { useAuth } from "../providers/AuthProvider";
 
 const Wrapper = styled.div`
   align-items: center;
@@ -45,6 +45,8 @@ const Form = styled.form`
 `;
 
 const LoginView = () => {
+  const { login } = useAuth();
+
   return (
     <Wrapper>
       <Container>
@@ -52,7 +54,6 @@ const LoginView = () => {
         <Formik
           initialValues={{ email: "", password: "" }}
           validate={values => {
-            console.log(values);
             let errors = {};
             if (!values.email) {
               errors.email = "Email is required";
@@ -63,12 +64,10 @@ const LoginView = () => {
             }
             return errors;
           }}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              setSubmitting(false);
-              navigate("/home");
-              console.log(values);
-            }, 2000);
+          onSubmit={async (values, { setSubmitting }) => {
+            await login({ email: values.email });
+            console.log("sent");
+            setSubmitting(false);
           }}
         >
           {({

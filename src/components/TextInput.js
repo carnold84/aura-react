@@ -48,7 +48,6 @@ const TextInput = ({
   value,
   ...rest
 }) => {
-  console.log(value);
   return (
     <Wrapper {...rest}>
       <Label htmlFor={id}>{label}</Label>

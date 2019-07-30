@@ -6,7 +6,7 @@ import { routes } from "../config";
 import AppBar from "../components/AppBar";
 import AppBody from "../components/AppBody";
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, onLogout }) => {
   return (
     <>
       <AppBar

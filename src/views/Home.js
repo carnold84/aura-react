@@ -1,9 +1,7 @@
 import React from "react";
 
-import AppLayout from "../containers/AppLayout";
-
 const HomeView = () => {
-  return <AppLayout>Home</AppLayout>;
+  return <p>Home</p>;
 };
 
 export default HomeView;

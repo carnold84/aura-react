@@ -48,7 +48,6 @@ const Wrapper = styled.button`
 `;
 
 const Button = ({ children, disabled, isPrimary, type, ...rest }) => {
-  console.log(isPrimary);
   return (
     <Wrapper
       className={isPrimary ? "is-primary" : null}

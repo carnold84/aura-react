@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const Menu = styled.ul`
-  justify-self: flex-end;
   display: flex;
+  height: 100%;
+  justify-self: flex-end;
 `;
 
 export default Menu;
