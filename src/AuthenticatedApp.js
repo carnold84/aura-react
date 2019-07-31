@@ -10,7 +10,7 @@ import { useUser } from "./providers/UserProvider";
 
 const AuthenticatedApp = () => {
   const { logout } = useAuth();
-  const { user } = useUser();
+  const user = useUser();
 
   return (
     <AppLayout onLogout={logout} user={user}>

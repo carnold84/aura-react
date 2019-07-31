@@ -5,12 +5,19 @@ import { routes } from "../config";
 
 import AppBar from "../components/AppBar";
 import AppBody from "../components/AppBody";
+import Avatar from "../components/Avatar";
 
-const AppLayout = ({ children, onLogout }) => {
+const AppLayout = ({ children, onLogout, user }) => {
   return (
     <>
       <AppBar
         contentRight={
+          <Avatar
+            altText={`${user.firstName}, ${user.lastName}`}
+            imageUrl={user.imageUrl}
+          />
+        }
+        menu={
           <AppBar.Menu>
             {routes.map(route => {
               if (route.showInMenu) {

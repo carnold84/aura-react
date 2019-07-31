@@ -3,13 +3,23 @@ import React, { useState } from "react";
 const AuthContext = React.createContext();
 
 const AuthProvider = props => {
-  let [user, setUser] = useState(sessionStorage.getItem("aura"));
+  let [user, setUser] = useState(JSON.parse(sessionStorage.getItem("aura")));
+
+  console.log(JSON.parse(sessionStorage.getItem("aura")));
 
   const login = async data => {
     return new Promise(() => {
       setTimeout(() => {
-        sessionStorage.setItem("aura", data);
-        setUser(sessionStorage.getItem("aura"));
+        sessionStorage.setItem(
+          "aura",
+          JSON.stringify({
+            email: data.email,
+            firstName: "Sarah",
+            imageUrl: "img/avatar.jpg",
+            lastName: "Harris"
+          })
+        );
+        setUser(JSON.parse(sessionStorage.getItem("aura")));
       }, 2000);
     }).then(() => {
       return true;
@@ -22,15 +32,13 @@ const AuthProvider = props => {
     return new Promise(() => {
       setTimeout(() => {
         sessionStorage.removeItem("aura");
-        setUser(sessionStorage.getItem("aura"));
+        setUser(JSON.parse(sessionStorage.getItem("aura")));
         return true;
       }, 2000);
     }).then(() => {
       return true;
     });
   };
-
-  console.log(user);
 
   return (
     <AuthContext.Provider

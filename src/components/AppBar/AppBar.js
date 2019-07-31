@@ -23,6 +23,12 @@ const Main = styled.div`
   width: 100%;
 `;
 
+const Secondary = styled.div`
+  align-items: center;
+  display: flex;
+  margin: 0 20px 0 0;
+`;
+
 const Menu = styled.div`
   align-items: center;
   background-color: ${props => props.theme.appBar.bgColor};
@@ -33,19 +39,23 @@ const Menu = styled.div`
   overflow-y: hidden;
 
   @media ${device.tablet} {
+    background-color: transparent;
+    border-bottom: none;
     margin: 0;
-    max-width: 600px;
-    padding: 40px 45px;
+    position: absolute;
+    right: 80px;
+    top: 0;
   }
 `;
 
-const AppBar = ({ contentLeft, contentRight, ...rest }) => {
+const AppBar = ({ contentLeft, contentRight, menu, ...rest }) => {
   return (
     <Wrapper {...rest}>
       <Main>
         <Logo height={"26px"} style={{ margin: "0 0 0 20px" }} />
+        <Secondary>{contentRight}</Secondary>
       </Main>
-      <Menu>{contentRight}</Menu>
+      <Menu>{menu}</Menu>
     </Wrapper>
   );
 };
@@ -53,7 +63,9 @@ const AppBar = ({ contentLeft, contentRight, ...rest }) => {
 const { any } = propTypes;
 
 AppBar.propTypes = {
-  contentRight: any
+  contentLeft: any,
+  contentRight: any,
+  menu: any
 };
 
 AppBar.defaultProps = {};
