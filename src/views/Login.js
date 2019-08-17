@@ -8,7 +8,6 @@ import Button from "../components/Button";
 import Loading from "../components/Loading";
 import Logo from "../components/Logo";
 import TextInput from "../components/TextInput";
-import { useAuth } from "../providers/AuthProvider";
 
 const Wrapper = styled.div`
   align-items: center;
@@ -44,9 +43,7 @@ const Form = styled.form`
   width: 100%;
 `;
 
-const LoginView = () => {
-  const { login } = useAuth();
-
+const LoginView = ({ onLogin }) => {
   return (
     <Wrapper>
       <Container>
@@ -65,7 +62,7 @@ const LoginView = () => {
             return errors;
           }}
           onSubmit={async (values, { setSubmitting }) => {
-            await login({ email: values.email });
+            await onLogin({ email: values.email });
             console.log("sent");
             setSubmitting(false);
           }}

@@ -9,6 +9,8 @@ import Logo from "../Logo";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 0;
   width: 100%;
 `;
 
@@ -38,7 +40,7 @@ const Menu = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
 
-  @media ${device.tablet} {
+  @media ${device.mobileL} {
     background-color: transparent;
     border-bottom: none;
     margin: 0;

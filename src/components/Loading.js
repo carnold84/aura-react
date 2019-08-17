@@ -36,6 +36,7 @@ const Loader = styled.div`
   position: relative;
   margin: 0 auto;
   width: ${props => props.diameter};
+
   &:before {
     content: "";
     display: block;

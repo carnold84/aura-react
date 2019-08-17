@@ -1,14 +1,14 @@
 const colors = {
   primary1: "#7f226b",
   primary2: "#a73a8f",
-  theme1: "#ffffff",
-  theme2: "#f9f9f9",
-  theme3: "#f2f2f2",
+  theme1: "#212325",
+  theme2: "#222527",
+  theme3: "#2b2f31",
   theme4: "#dddddd",
   theme5: "#cccccc",
-  text1: "#222222",
-  text2: "#555555",
-  text3: "#777777",
+  text1: "#ffffff",
+  text2: "#7c848a",
+  text3: "#757e84",
   textAlt1: "#ffffff",
   textAlt2: "#cccccc",
   textAlt3: "#999999",
@@ -32,7 +32,7 @@ export default {
     }
   },
   appBody: {
-    bgColor: colors.theme3
+    bgColor: colors.theme1
   },
   colors,
   button: {
@@ -103,7 +103,7 @@ export default {
     }
   },
   section: {
-    bgColor: colors.theme1,
+    bgColor: colors.theme2,
     borderColor: colors.theme3,
     label: {
       color: colors.text2
