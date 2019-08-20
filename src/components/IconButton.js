@@ -12,12 +12,12 @@ const Wrapper = styled.button`
   fill: ${props => props.theme.iconButton.color};
   cursor: pointer;
   display: flex;
-  height: ${props => props.height};
+  height: 40px;
   justify-content: center;
   outline: transparent solid 2px;
   padding: 0;
   transition: all 300ms ease-in-out;
-  width: ${props => props.width};
+  width: 40px;
 
   &:disabled {
     pointer-events: none;
@@ -39,13 +39,7 @@ const Wrapper = styled.button`
 
 const IconButton = ({ children, disabled, height, type, width, ...rest }) => {
   return (
-    <Wrapper
-      disabled={disabled}
-      height={height}
-      type={type}
-      width={width}
-      {...rest}
-    >
+    <Wrapper disabled={disabled} type={type} {...rest}>
       {children}
     </Wrapper>
   );
@@ -55,15 +49,11 @@ const { bool, string } = propTypes;
 
 IconButton.propTypes = {
   disabled: bool,
-  height: string,
-  type: string,
-  width: string
+  type: string
 };
 
 IconButton.defaultProps = {
-  disabled: false,
-  height: "40px",
-  width: "40px"
+  disabled: false
 };
 
 export default IconButton;

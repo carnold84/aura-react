@@ -21,13 +21,7 @@ const Wrapper = styled.div`
 `;
 
 const ProjectsView = () => {
-  return (
-    <Wrapper>
-      <AppBar>
-        <Button>New Project</Button>
-      </AppBar>
-    </Wrapper>
-  );
+  return <Wrapper />;
 };
 
 export default ProjectsView;

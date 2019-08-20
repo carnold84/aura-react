@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 import { device } from "../../utils/device";
 
-import Logo from "../Logo";
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,12 +21,6 @@ const Main = styled.div`
   justify-content: space-between;
   padding: 0;
   width: 100%;
-`;
-
-const Secondary = styled.div`
-  align-items: center;
-  display: flex;
-  margin: 0 20px 0 0;
 `;
 
 const Menu = styled.div`
@@ -50,14 +42,11 @@ const Menu = styled.div`
   }
 `;
 
-const AppBar = ({ contentLeft, contentRight, menu, ...rest }) => {
+const AppBar = ({ children, menu, ...rest }) => {
   return (
     <Wrapper {...rest}>
-      <Main>
-        <Logo height={"26px"} style={{ margin: "0 0 0 20px" }} />
-        <Secondary>{contentRight}</Secondary>
-      </Main>
-      <Menu>{menu}</Menu>
+      <Main>{children}</Main>
+      {menu && <Menu>{menu}</Menu>}
     </Wrapper>
   );
 };
@@ -65,8 +54,7 @@ const AppBar = ({ contentLeft, contentRight, menu, ...rest }) => {
 const { any } = propTypes;
 
 AppBar.propTypes = {
-  contentLeft: any,
-  contentRight: any,
+  children: any,
   menu: any
 };
 

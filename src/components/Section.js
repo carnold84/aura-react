@@ -46,8 +46,6 @@ const Section = ({ children, label, ...rest }) => {
   const size = useComponentSize(ref);
   const { width } = size;
 
-  console.log(width);
-
   let gridColumns = "1fr 1fr 1fr";
 
   if (width > 1000) {

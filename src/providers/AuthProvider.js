@@ -15,6 +15,7 @@ const AuthProvider = props => {
           JSON.stringify({
             email: data.email,
             firstName: "Sarah",
+            id: "9asf9293lasd123da",
             imageUrl: "img/avatar.jpg",
             lastName: "Harris"
           })

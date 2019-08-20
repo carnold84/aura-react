@@ -32,7 +32,7 @@ export default {
     }
   },
   appBody: {
-    bgColor: colors.theme3
+    bgColor: colors.theme2
   },
   colors,
   button: {
